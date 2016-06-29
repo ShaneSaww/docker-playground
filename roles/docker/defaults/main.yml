@@ -1,0 +1,9 @@
+---
+pre_packages:
+  - apt-transport-https
+  - ca-certificates
+docker_apt_url: https://apt.dockerproject.org/gpg
+docker_apt_repo: deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main
+post_packages:
+  - apparmor
+  - docker-engine

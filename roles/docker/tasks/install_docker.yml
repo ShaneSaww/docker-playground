@@ -1,0 +1,31 @@
+---
+- name: Install pre packages
+  apt:
+    name: "{{item}}"
+    state: installed
+  with_items: "{{pre_packages}}"
+
+- name: Alternative | Add Docker repository key
+  shell: "curl -sSL {{docker_apt_url}} | sudo apt-key add -"
+
+- name: Add Docker repository and update apt cache
+  apt_repository:
+    repo: "{{docker_apt_repo}}"
+    mode: '644'
+    update_cache: yes
+    state: present
+
+- name: Update apt cache
+  apt: update_cache=yes
+
+- name: Install pre packages
+  apt:
+    name: "{{item}}"
+    state: installed
+  with_items: "{{post_packages}}"
+
+- name: Add users to the docker group
+  user:
+    name: "{{ansible_ssh_user}}"
+    groups: docker
+    append: yes
