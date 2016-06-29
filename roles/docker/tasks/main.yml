@@ -2,4 +2,8 @@
 - name: Update apt cache
   apt: update_cache=yes
 
+- shell: uname -r
+  ignore_errors: yes
+  register: uname_result
+
 - include: install_docker.yml

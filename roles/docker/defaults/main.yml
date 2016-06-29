@@ -3,7 +3,12 @@ pre_packages:
   - apt-transport-https
   - ca-certificates
 docker_apt_url: https://apt.dockerproject.org/gpg
+docker_apt_key_server: hkp://p80.pool.sks-keyservers.net:80
+docker_apt_key: 58118E89F3A912897C070ADBF76221572C52609D
 docker_apt_repo: deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main
 post_packages:
+  - "linux-image-extra-{{uname_result.stdout}}"
   - apparmor
   - docker-engine
+docker_112_url: https://test.docker.com/builds/Linux/x86_64/docker-1.12.0-rc2.tgz
+docker_tmp_dir: /root/docker
