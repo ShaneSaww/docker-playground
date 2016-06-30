@@ -8,5 +8,5 @@
   shell: "docker swarm join {{docker_master_ip}}:{{docker_master_port}}"
   register: result
   until: result.stdout.find("joined a Swarm") != -1
-  retries: 50
+  retries: 10
   delay: 15
