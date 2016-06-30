@@ -1,0 +1,3 @@
+---
+- name: Register Node
+  shell: "docker swarm join {{docker_master_ip}}:{{docker_master_port}}"
