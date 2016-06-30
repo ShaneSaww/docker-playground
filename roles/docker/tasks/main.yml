@@ -1,6 +1,6 @@
 ---
-# - shell: uname -r
-#   ignore_errors: yes
-#   register: uname_result
-#
-# - include: install_docker.yml
+- shell: uname -r
+  ignore_errors: yes
+  register: uname_result
+
+- include: install_docker.yml
