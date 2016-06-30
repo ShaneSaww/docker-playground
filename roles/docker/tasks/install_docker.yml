@@ -30,6 +30,7 @@
     groups: docker
     append: yes
 
+
 - name: Download Docker 1.12
   shell: "wget {{docker_112_url}} -O {{docker_tmp_dir}}.tgz"
 
@@ -37,6 +38,7 @@
   unarchive:
     src: "{{docker_tmp_dir}}.tgz"
     dest: /root
+
     copy: no
 
 - name: Remove tarball

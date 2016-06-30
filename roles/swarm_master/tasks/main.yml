@@ -3,10 +3,11 @@
   service:
     name: docker
     state: started
+  become: true
 
 - name: Register Master
   command: "docker swarm init --listen-addr {{docker_master_ip}}:{{docker_master_port}}"
   register: result
   until: result.stdout.find("Swarm initialized") != -1
-  retries: 10
-  delay: 15
+  retries: 5
+  delay: 5

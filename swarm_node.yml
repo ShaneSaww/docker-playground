@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: node-*
   roles:
   - role: swarm_node
   vars_files:

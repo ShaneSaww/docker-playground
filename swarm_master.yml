@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: master-*
   roles:
   - role: swarm_master
   vars_files:
