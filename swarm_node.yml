@@ -1,8 +1,6 @@
 ---
 - hosts: all
   roles:
-  - role: docker
-    become: true 
   - role: swarm_node
   vars_files:
    - defaults/main.yml

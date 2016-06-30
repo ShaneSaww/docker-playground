@@ -51,3 +51,14 @@
   service:
     name: docker
     state: restarted
+
+##IDK how important this really is, but the docs say to do it.
+- name: restart machine
+  shell: shutdown -r
+  async: 1
+  poll: 0
+  ignore_errors: true
+
+- name: waiting for server to come back
+  local_action: wait_for host="{{ansible_ssh_host}}" port="{{ansible_ssh_port}}" state=started delay=15 timeout=300
+  become: false
