@@ -1,4 +1,8 @@
 ---
+- name: set hostname
+  hostname: name="{{inventory_hostname}}"
+  become: true
+
 - shell: uname -r
   ignore_errors: yes
   register: uname_result
